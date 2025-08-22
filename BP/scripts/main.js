@@ -96,3 +96,7 @@ world.afterEvents.entityHitEntity.subscribe(({ damagingEntity, hitEntity }) => {
 
   hitEntity.applyKnockback(horizontalForce, verticalKB * 1.023);
 });
+
+world.beforeEvents.playerLeave.subscribe(({ player }) => {
+    kbCooldown.delete(player.id)
+});
